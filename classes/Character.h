@@ -24,6 +24,7 @@ public:
     Character(Stat health, Stat defense, Stat magicDmg);
 
     void changeHealth(int amount);
+    void changeMana(int amount);
     void attackMelee(Enemy target);
     void attackMagic(Enemy target);
     void applyDebuff(Enemy target, Buff current_debuff);
