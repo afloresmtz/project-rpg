@@ -12,5 +12,6 @@ This type of game is, in my opinion, very appropiate to the subject of Object-Or
 The game will be run completely in the terminal, with no other visuals involved. The player will be able to input actions (such as "Attack", "Defend", or "Use Spell") to control the character in the current turn. There will be no movement from the characters, nor a visual indicator of the characters on the screen; the game will run completely on text, with one event after the other. 
 
 ## UML Class Diagram
-![UMLClassDiagram(1)](https://github.com/user-attachments/assets/523c884d-efbe-44f6-9aa1-d2b2cb24c872)
+![UMLClassDiagram(2)](https://github.com/user-attachments/assets/7ed6e95e-561f-47e7-904b-f43821f45b97)
+
 
