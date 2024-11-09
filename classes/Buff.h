@@ -12,7 +12,7 @@ public:
 
     void affectStat();
     void permanentStatChange();
-    void affectStatOverTime(int duration);
+    void affectStatOverTime();
 };
 
 #endif
