@@ -56,6 +56,7 @@ public:
     void attackMagic(Enemy target);
     void applyDebuff(Enemy target, Buff current_debuff);
     void applyBuff(Character& ally, Buff current_buff);
+    void guard();
 
 };
 
