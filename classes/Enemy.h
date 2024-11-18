@@ -26,8 +26,8 @@ public:
     void setMeleeRes(int amount);
 
     void attack(Character target);
-    void applyBuff(Enemy& ally, Buff current_buff);
-    void applyDebuff(Character target, Buff current_debuff);
+    void applyBuff(Buff current_buff);
+    void applyDebuff(Buff current_debuff);
 };
 
 #endif
