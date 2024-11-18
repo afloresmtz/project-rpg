@@ -10,6 +10,9 @@ Skeleton::Skeleton(int health, int strength) {
 }
 
 void Skeleton::regenerate() {
+    // unable to implement method definition until main.cpp is created and a turn counter is established
+    // will be done on next delivery
+
     // when death: counter = 0
     // while dead:
     // if (counter < 3):
