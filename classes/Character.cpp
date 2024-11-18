@@ -89,18 +89,40 @@ void equipWeapon(Weapon new_weapon) {
 }
 
 void Character::attackMelee(Enemy target) {
-    // code inside of method
+    int dmg_recieved = meleeDmg * (2 - (0.02 * target.getMeleeRes()));
+    target.setHealth(target.getHealth() - dmg_recieved);
 }
-void Character::attackMagic(Enemy target) {
-    // code inside of method
+void Character::attackMagic(Enemy target, int mana_amount) {
+    if(mana - mana_amount >= 0){
+        int dmg_recieved = magicDmg * (2 - (0.02 * target.getMagicRes()));
+        target.setHealth(target.getHealth() - dmg_recieved);
+        mana = mana - mana_amount;
+    }
 }
 
-void Character::applyDebuff(Enemy target, Buff current_debuff) {
-    // will be done on next delivery
+void Character::applyDebuff(Buff current_debuff, int mana_amount) {
+    if(mana - mana_amount > 0){
+        current_debuff.affectEnemyStat();
+        mana = mana - mana_amount;
+    }
+    // still missing turn calculations for when the debuff ends
+    // will do in next delivery when main.cpp is created and functional
+    
 }
-void Character::applyBuff(Character& ally, Buff current_buff) {
-    // will be done on next delivery
+void Character::applyBuff(Buff current_buff, int mana_amount) {
+    if(mana - mana_amount > 0){
+        current_debuff.affectCharacterStat();
+        mana = mana - mana_amount;
+    }
+    // still missing turn calculations for when the buff ends
+    // will do in next delivery when main.cpp is created and functional
 }
 
 void guard() {
+    defense = defense * 2;
+    
+    // remove effect when it's the character's turn again
+    // original_value = defense;
+    // when it's their turn again:
+    // defense = original_value;
 }
