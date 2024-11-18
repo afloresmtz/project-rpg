@@ -89,12 +89,12 @@ void equipWeapon(Weapon new_weapon) {
 }
 
 void Character::attackMelee(Enemy target) {
-    int dmg_recieved = meleeDmg * (2 - (0.02 * target.getMeleeRes()));
+    int dmg_recieved = (meleeDmg + current_weapon.getDamage()) * (2 - (0.02 * target.getMeleeRes()));
     target.setHealth(target.getHealth() - dmg_recieved);
 }
 void Character::attackMagic(Enemy target, int mana_amount) {
     if(mana - mana_amount >= 0){
-        int dmg_recieved = magicDmg * (2 - (0.02 * target.getMagicRes()));
+        int dmg_recieved = (magicDmg + current_weapon.getDamage()) * (2 - (0.02 * target.getMagicRes()));
         target.setHealth(target.getHealth() - dmg_recieved);
         mana = mana - mana_amount;
     }
