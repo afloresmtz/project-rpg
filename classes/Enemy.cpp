@@ -37,12 +37,11 @@ void Enemy::setMeleeRes(int amount) {
 }
 
 void Enemy::attack(Character target) {
-    target.changeHealth(strength);
-    // will do further calculations for defense here
+    target.setHealth(target.getHealth() - (strength - target.getDefense()));
 }
-void Enemy::applyBuff(Enemy& ally, Buff current_buff) {
-    // will be done on next delivery
+void Enemy::applyBuff(Buff current_buff) {
+    current_buff.affectEnemyStat();
 }
-void Enemy::applyDebuff(Character target, Buff current_debuff) {
-    // will be done on next delivery
+void Enemy::applyDebuff(Buff current_debuff) {
+    current_debuff.affectCharacterStat();
 }
