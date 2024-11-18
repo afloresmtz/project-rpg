@@ -53,9 +53,9 @@ public:
     void equipWeapon(Weapon new_weapon);
 
     void attackMelee(Enemy target);
-    void attackMagic(Enemy target);
-    void applyDebuff(Enemy target, Buff current_debuff);
-    void applyBuff(Character& ally, Buff current_buff);
+    void attackMagic(Enemy target, int mana_amount);
+    void applyDebuff(Buff current_debuff, int mana_amount);
+    void applyBuff(Buff current_buff, int mana_amount);
     void guard();
 
 };
