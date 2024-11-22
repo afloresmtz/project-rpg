@@ -19,8 +19,9 @@ private:
     Weapon current_weapon;
 
 public:
-    Character(string name, int health, int defense, int meleeDmg, Weapon current_weapon);
-    Character(string name, int health, int defense, int magicDmg, Weapon current_weapon);
+    Character(string name, int health, int defense, int damage, Weapon current_weapon);
+
+    string getName();
 
     int getHealth();
     void setHealth(int amount);
