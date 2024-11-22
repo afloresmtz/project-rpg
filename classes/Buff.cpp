@@ -38,6 +38,8 @@ void Buff::affectCharacterStat() {
             else {
                 cout << "mana is already at max." << endl;
             }
+        case "maxHealth":
+            targetCharacter.setMaxHealth(targetCharacter.getMaxHealth() + intensity);
         case "defense":
             targetCharacter.setDefense(targetCharacter.getDefense() + intensity);
         case "meleeDmg":
