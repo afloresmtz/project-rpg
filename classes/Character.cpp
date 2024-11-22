@@ -1,29 +1,22 @@
 #include "Character.h"
 
-Character::Character(string name, int health, int defense, int meleeDmg, Weapon current_weapon) {
+Character::Character(string name, int health, int defense, int damage, Weapon current_weapon) {
     this->name = name;
     this->health = health;
     maxHealth = health;
     this->defense = defense;
-    this->meleeDmg = meleeDmg;
-    this->current_weapon = current_weapon;
-
-    critChance = 5;
-    critDmg = 50;
-}
-Character::Character(string name, int health, int defense, int magicDmg, Weapon current_weapon) {
-    this->name = name;
-    this->health = health;
-    maxHealth = health;
-    this->defense = defense;
-    this->magicDmg = magicDmg;
+    magicDmg = damage;
+    meleeDmg = damage;
     this->current_weapon = current_weapon;
 
     mana = 100;
     maxMana = mana;
     critChance = 5;
     critDmg = 50;
-    healthRegen = 0;
+}
+
+string Character::getName() {
+    return name;
 }
 
 int Character::getHealth() {
