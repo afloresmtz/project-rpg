@@ -5,7 +5,6 @@
 #include <bits/stdc++.h>
 #include "Weapon.h"
 #include "Enemy.h"
-#include "Buff.h"
 
 Character::Character(const std::string& name, int health, int defense, int damage, Weapon current_weapon) {
     this->name = name;
@@ -113,29 +112,6 @@ void Character::attackMagic(Enemy* target, int mana_amount) {
     }
 }
 
-void Character::applyDebuff(Buff* current_debuff, int mana_amount) {
-    if(mana - mana_amount > 0){
-        current_debuff.affectEnemyStat();
-        mana = mana - mana_amount;
-    }
-    // still missing turn calculations for when the debuff ends
-    // will do in next delivery when main.cpp is created and functional
-    
-}
-void Character::applyBuff(Buff* current_buff, int mana_amount) {
-    if(mana - mana_amount > 0){
-        current_debuff.affectCharacterStat();
-        mana = mana - mana_amount;
-    }
-    // still missing turn calculations for when the buff ends
-    // will do in next delivery when main.cpp is created and functional
-}
-
 void Character::guard() {
     defense = defense + 20;
-    
-    // remove effect when it's the character's turn again
-    // original_value = defense;
-    // when it's their turn again:
-    // defense = original_value;
 }
