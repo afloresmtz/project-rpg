@@ -4,7 +4,6 @@
 #include <string>
 class Weapon;
 #include "Enemy.h"
-#include "Buff.h"
 
 class Character {
 private:
@@ -58,8 +57,6 @@ public:
 
     void attackMelee(Enemy* target);
     void attackMagic(Enemy* target, int mana_amount);
-    void applyDebuff(Buff* current_debuff, int mana_amount);
-    void applyBuff(Buff* current_buff, int mana_amount);
     void guard();
 
 };
