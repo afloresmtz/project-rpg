@@ -1,4 +1,11 @@
 #include "Character.h"
+#include <string>
+#include <time.h>
+#include <ctime>
+#include <bits/stdc++.h>
+#include "Weapon.h"
+#include "Enemy.h"
+#include "Buff.h"
 
 Character::Character(string name, int health, int defense, int damage, Weapon current_weapon) {
     this->name = name;
