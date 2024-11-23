@@ -4,7 +4,8 @@
 #include "Enemy.h"
 
 class Skeleton : public Enemy {
-// no private attributes, it shares Enemy's protected attributes
+private:
+    bool regenerated;
 public:
     Skeleton(int health, int strength);
 
