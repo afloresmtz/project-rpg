@@ -89,29 +89,30 @@ void Character::equipWeapon(BlessedWeapon* new_weapon) {
 }
 
 void Character::attackMelee(Enemy* target) {
-    int dmg_recieved = (meleeDmg + current_weapon.getDamage()) * (2 - (0.02 * target.getMeleeRes()));
+    int dmg_recieved = (meleeDmg + current_weapon->getDamage()) * (2 - (0.02 * target->getMeleeRes()));
     srand(time(nullptr));
     int random_roll = rand() % (101);
     if(random_roll < critChance){
             dmg_recieved = dmg_recieved * ((100 + critDmg) / 100);
             cout << "Critical hit!\n" << endl;
     }
-    target.setHealth(target.getHealth() - dmg_recieved);
+    target->setHealth(target->getHealth() - dmg_recieved);
 }
+
 void Character::attackMagic(Enemy* target, int mana_amount) {
     if(mana - mana_amount >= 0){
-        int dmg_recieved = (magicDmg + current_weapon.getDamage()) * (2 - (0.02 * target.getMagicRes()));
+        int dmg_recieved = (magicDmg + current_weapon->getDamage()) * (2 - (0.02 * target->getMagicRes()));
         srand(time(nullptr));
         int random_roll = rand() % (101);
         if(random_roll < critChance){
             dmg_recieved = dmg_recieved * ((100 + critDmg) / 100);
             cout << "Critical hit!\n" << endl;
         }
-        target.setHealth(target.getHealth() - dmg_recieved);
+        target->setHealth(target->getHealth() - dmg_recieved);
         mana = mana - mana_amount;
     }
     else {
-        cout << "Not enough mana!" << endl; 
+        cout << "Not enough mana!" << endl;
     }
 }
 
