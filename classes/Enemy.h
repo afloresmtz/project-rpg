@@ -1,6 +1,10 @@
 #ifndef ENEMY_H
 #define ENEMY_H
 
+#include <string>
+#include "Character.h"
+#include "Buff.h"
+
 class Enemy {
 protected:
     std::string name;
