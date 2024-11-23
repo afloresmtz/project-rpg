@@ -1,62 +1,51 @@
 #include "Buff.h"
-#include "Character.h"
-#include "Enemy.h"
 
-Buff::Buff(Character targetCharacter, string targetStat, int intensity) {
-    this->targetCharacter = targetCharacter;
-    this->targetStat = targetStat;
-    this->intensity = intensity;
-}
+Buff::Buff(Character* targetCharacter, const std::string& targetStat, int intensity)
+    : targetCharacter(targetCharacter), targetEnemy(nullptr), targetStat(targetStat), intensity(intensity) {}
 
-Buff::Buff(Character targetCharacter, string targetStat, int intensity, int duration) {
-    this->targetCharacter = targetCharacter;
-    this->targetStat = targetStat;
-    this->intensity = intensity;
-    this->duration = duration;
-}
+Buff::Buff(Character* targetCharacter, const std::string& targetStat, int intensity, int duration)
+    : targetCharacter(targetCharacter), targetEnemy(nullptr), targetStat(targetStat), intensity(intensity), duration(duration) {}
 
-Buff::Buff(Enemy targetEnemy, string targetStat, int intensity, int duration) {
-    this->targetEnemy = targetEnemy;
-    this->targetStat = targetStat;
-    this->intensity = intensity;
-    this->duration = duration;
-}
+Buff::Buff(Enemy* targetEnemy, const std::string& targetStat, int intensity, int duration)
+    : targetCharacter(nullptr), targetEnemy(targetEnemy), targetStat(targetStat), intensity(intensity), duration(duration) {}
+
 
 void Buff::affectCharacterStat() {
+    if (!targetCharacter) return;
     if (targetStat == "health") {
-        if (targetCharacter.getHealth() + intensity <= targetCharacter.getMaxHealth()) {
-            targetCharacter.setHealth(targetCharacter.getHealth() + intensity);
+        if (targetCharacter->getHealth() + intensity <= targetCharacter->getMaxHealth()) {
+            targetCharacter->setHealth(targetCharacter->getHealth() + intensity);
         } else {
-            cout << "Health is already at max." << endl;
+            targetCharacter->setHealth(targetCharacter->getMaxHealth());
         }
-    } 
+    }
     else if (targetStat == "mana") {
-        if (targetCharacter.getMana() + intensity <= targetCharacter.getMaxMana()) {
-            targetCharacter.setMana(targetCharacter.getMana() + intensity);
+        if (targetCharacter->getMana() + intensity <= targetCharacter->getMaxMana()) {
+            targetCharacter->setMana(targetCharacter->getMana() + intensity);
         } else {
-            cout << "Mana is already at max." << endl;
+            std::cout << "Mana is already at max." << std::endl;
         }
-    } 
+    }
     else if (targetStat == "maxHealth") {
-        targetCharacter.setMaxHealth(targetCharacter.getMaxHealth() + intensity);
-    } 
+        targetCharacter->setMaxHealth(targetCharacter->getMaxHealth() + intensity);
+    }
     else if (targetStat == "defense") {
-        targetCharacter.setDefense(targetCharacter.getDefense() + intensity);
-    } 
+        targetCharacter->setDefense(targetCharacter->getDefense() + intensity);
+    }
     else if (targetStat == "meleeDmg") {
-        targetCharacter.setMeleeDmg(targetCharacter.getMeleeDmg() + intensity);
-    } 
+        targetCharacter->setMeleeDmg(targetCharacter->getMeleeDmg() + intensity);
+    }
     else if (targetStat == "magicDmg") {
-        targetCharacter.setMagicDmg(targetCharacter.getMagicDmg() + intensity);
-    } 
+        targetCharacter->setMagicDmg(targetCharacter->getMagicDmg() + intensity);
+    }
     else if (targetStat == "maxMana") {
-        targetCharacter.setMaxMana(targetCharacter.getMaxMana() + intensity);
-    } 
+        targetCharacter->setMaxMana(targetCharacter->getMaxMana() + intensity);
+    }
     else if (targetStat == "critChance") {
-        targetCharacter.setCritChance(targetCharacter.getCritChance() + intensity);
-    } 
+        targetCharacter->setCritChance(targetCharacter->getCritChance() + intensity);
+    }
     else if (targetStat == "critDmg") {
-        targetCharacter.setCritDmg(targetCharacter.getCritDmg() + intensity);
+        targetCharacter->setCritDmg(targetCharacter->getCritDmg() + intensity);
     }
 }
 
