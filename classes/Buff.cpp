@@ -23,7 +23,7 @@ void Buff::affectCharacterStat() {
         if (targetCharacter->getMana() + intensity <= targetCharacter->getMaxMana()) {
             targetCharacter->setMana(targetCharacter->getMana() + intensity);
         } else {
-            std::cout << "Mana is already at max." << std::endl;
+            targetCharacter->setMana(targetCharacter->getMaxMana());
         }
     }
     else if (targetStat == "maxHealth") {
