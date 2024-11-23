@@ -3,7 +3,7 @@
 Buff::Buff(Character* targetCharacter, const std::string& targetStat, int intensity)
     : targetCharacter(targetCharacter), targetEnemy(nullptr), targetStat(targetStat), intensity(intensity) {}
 
-Buff::Buff(Enemy* targetEnemy, const std::string& targetStat, int intensity, int duration)
+Buff::Buff(Enemy* targetEnemy, const std::string& targetStat, int intensity)
     : targetCharacter(nullptr), targetEnemy(targetEnemy), targetStat(targetStat), intensity(intensity) {}
 
 
@@ -48,20 +48,20 @@ void Buff::affectCharacterStat() {
 
 void Buff::affectEnemyStat() {
     if (targetStat == "health") {
-        if (targetEnemy.getHealth() + intensity <= targetEnemy.getMaxHealth()) {
-            targetEnemy.setHealth(targetEnemy.getHealth() + intensity);
+        if (targetEnemy->getHealth() + intensity <= targetEnemy->getMaxHealth()) {
+            targetEnemy->setHealth(targetEnemy->getHealth() + intensity);
         } else {
             targetEnemy->setHealth(targetEnemy->getMaxHealth());
         }
-    } 
+    }
     else if (targetStat == "strength") {
-        targetEnemy.setStrength(targetEnemy.getStrength() + intensity);
-    } 
+        targetEnemy->setStrength(targetEnemy->getStrength() + intensity);
+    }
     else if (targetStat == "magicRes") {
-        targetEnemy.setMagicRes(targetEnemy.getMagicRes() + intensity);
-    } 
+        targetEnemy->setMagicRes(targetEnemy->getMagicRes() + intensity);
+    }
     else if (targetStat == "meleeRes") {
-        targetEnemy.setMeleeRes(targetEnemy.getMeleeRes() + intensity);
+        targetEnemy->setMeleeRes(targetEnemy->getMeleeRes() + intensity);
     }
 }
 
