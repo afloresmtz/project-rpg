@@ -9,7 +9,7 @@ class Buff {
 private:
     int intensity;
 
-    std:.string targetStat;
+    std::string targetStat;
 
     Character* targetCharacter;
     Enemy* targetEnemy;
