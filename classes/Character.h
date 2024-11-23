@@ -2,11 +2,14 @@
 #define CHARACTER_H
 
 #include <string>
+class Weapon;
+#include "Enemy.h"
+#include "Buff.h"
 
 class Character {
 private:
     // Character attributes
-    string name;
+    std::string name;
     int health;
     int maxHealth;
     int defense;
@@ -16,12 +19,12 @@ private:
     int maxMana;
     int critChance;
     int critDmg;
-    Weapon current_weapon;
+    Weapon* current_weapon;
 
 public:
-    Character(string name, int health, int defense, int damage, Weapon current_weapon);
+    Character(const std::string name, int health, int defense, int damage, Weapon* current_weapon);
 
-    string getName();
+    const std::string getName();
 
     int getHealth();
     void setHealth(int amount);
@@ -51,12 +54,12 @@ public:
     void setCritDmg(int amount);
 
     Weapon getWeapon();
-    void equipWeapon(Weapon new_weapon);
+    void equipWeapon(Weapon* new_weapon);
 
-    void attackMelee(Enemy target);
-    void attackMagic(Enemy target, int mana_amount);
-    void applyDebuff(Buff current_debuff, int mana_amount);
-    void applyBuff(Buff current_buff, int mana_amount);
+    void attackMelee(Enemy* target);
+    void attackMagic(Enemy* target, int mana_amount);
+    void applyDebuff(Buff* current_debuff, int mana_amount);
+    void applyBuff(Buff* current_buff, int mana_amount);
     void guard();
 
 };
