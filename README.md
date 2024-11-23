@@ -9,9 +9,10 @@ While it's true that RPGs (and videogames in general) may not serve some higher 
 ### How I will approach the project (with OOP)
 This type of game is, in my opinion, very appropiate to the subject of Object-Oriented Programming. I plan to have 4 characters in a party that the player will be able to control. This party of characters will ascend floors of a tower, encountering different things in each floor. Some floors may contain a treasure, some may contain a fight, and some may contain a shop to spend gold and buy upgrades. Characters will be able to upgrade some stats or obtain new weapons after fights, which will help them face a final boss at the end of the tower. The classes that will be implemented in this project are: Character, Enemy, Weapon and Buff. Character will serve as the characters that the player controls, Enemy as the enemies they will face, Weapon as equippable items for each character, and Buff as effects to increase or decrease stats of characters or enemies. Similarly, some of these classes will have subclasses, as to expand the types of objects that can be created. For example, the Weapon class will have a specific subclass in order to differentiate the weapons that the characters use, to the ones that the enemies use. The weapons held by the characters will have special characteristics that the base weapon (or the superclass) will not possess.
 
-The game will be run completely in the terminal, with no other visuals involved. The player will be able to input actions (such as "Attack", "Defend", or "Use Spell") to control the character in the current turn. There will be no movement from the characters, nor a visual indicator of the characters on the screen; the game will run completely on text, with one event (that is, either a fight, a treasure, an encounter or a shop) after the other. 
+The game will be run completely in the terminal, with no other visuals involved. The player will be able to input actions (such as "Attack", "Defend", or "Use Spell") to control the character in the current turn. There will be no movement from the characters, nor a visual indicator of the characters on the screen; the game will run completely on text, with one event (that is, either a fight, a treasure, a rest or a shop) after the other. 
 
 ## UML Class Diagram
-![ClassDiagram drawio(1)](https://github.com/user-attachments/assets/7cefdf02-2f5a-40c2-86eb-a01f0c927be6)
+![FinalClassDiagram drawio](https://github.com/user-attachments/assets/07d983cd-0d47-4d6d-82b6-b96c092678f8)
+
 
 
