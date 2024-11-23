@@ -33,8 +33,6 @@ public:
     void setMeleeRes(int amount);
 
     void attack(Character* target);
-    void applyBuff(Buff* current_buff);
-    void applyDebuff(Buff* current_debuff);
 };
 
 #endif
