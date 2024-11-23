@@ -5,6 +5,7 @@
 #include "Buff.h"
 #include "Weapon.h"
 
+// constructor
 Enemy::Enemy(const std::string& name, int health, int strength, int magicRes, int meleeRes, Weapon* equipped_weapon) {
     this->name = name;
     this->health = health;
@@ -15,6 +16,7 @@ Enemy::Enemy(const std::string& name, int health, int strength, int magicRes, in
     this->equipped_weapon = equipped_weapon;
 }
 
+// getters and setters for all stats
 const std::string Enemy::getName() {
     return name;
 }
@@ -51,6 +53,7 @@ void Enemy::setMeleeRes(int amount) {
     meleeRes = amount;
 }
 
+// action method
 void Enemy::attack(Character* target) {
     if(strength + equipped_weapon->getDamage() - target->getDefense() < 0) {
         cout << "The enemy did 0 damage to the " << target->getName() << endl;
