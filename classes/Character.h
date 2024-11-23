@@ -19,11 +19,14 @@ private:
     int maxMana;
     int critChance;
     int critDmg;
+    // Composition attribute
     BlessedWeapon* current_weapon;
 
 public:
+    // constructor
     Character(const std::string& name, int health, int defense, int damage, BlessedWeapon* current_weapon);
-
+    
+    // getters and setters for all stats
     const std::string getName();
 
     int getHealth();
@@ -55,7 +58,8 @@ public:
 
     BlessedWeapon getWeapon();
     void equipWeapon(BlessedWeapon* new_weapon);
-
+    
+    // action methods
     void attackMelee(Enemy* target);
     void attackMagic(Enemy* target, int mana_amount);
     void guard();
