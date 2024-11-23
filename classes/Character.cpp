@@ -7,6 +7,7 @@
 #include "Enemy.h"
 #include "BlessedWeapon.h"
 
+// constructor
 Character::Character(const std::string& name, int health, int defense, int damage, BlessedWeapon* current_weapon) {
     this->name = name;
     this->health = health;
@@ -21,7 +22,7 @@ Character::Character(const std::string& name, int health, int defense, int damag
     critChance = 5;
     critDmg = 50;
 }
-
+// getters and setters for all stats
 const std::string Character::getName() {
     return name;
 }
@@ -87,6 +88,8 @@ BlessedWeapon Character::getWeapon() {
 void Character::equipWeapon(BlessedWeapon* new_weapon) {
     current_weapon = new_weapon;
 }
+
+// action methods
 
 void Character::attackMelee(Enemy* target) {
     int dmg_recieved = (meleeDmg + current_weapon->getDamage()) * (2 - (0.02 * target->getMeleeRes()));
