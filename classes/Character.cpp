@@ -7,6 +7,8 @@
 #include "Enemy.h"
 #include "BlessedWeapon.h"
 
+using namespace std;
+
 // constructor
 Character::Character(const std::string& name, int health, int defense, int damage, BlessedWeapon* current_weapon) {
     this->name = name;
