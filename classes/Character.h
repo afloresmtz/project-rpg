@@ -22,7 +22,7 @@ private:
     BlessedWeapon* current_weapon;
 
 public:
-    Character(const std::string name, int health, int defense, int damage, BlessedWeapon* current_weapon);
+    Character(const std::string& name, int health, int defense, int damage, BlessedWeapon* current_weapon);
 
     const std::string getName();
 
