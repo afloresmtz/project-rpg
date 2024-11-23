@@ -113,5 +113,5 @@ void Character::attackMagic(Enemy* target, int mana_amount) {
 }
 
 void Character::guard() {
-    defense = defense + 20;
+    defense = defense + 10;
 }
