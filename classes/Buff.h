@@ -8,7 +8,6 @@ class Enemy;
 class Buff {
 private:
     int intensity;
-    int duration;
 
     std:.string targetStat;
 
@@ -17,8 +16,7 @@ private:
     
 public:
     Buff(Character* targetCharacter, const std::string& targetStat, int intensity);
-    Buff(Character* targetCharacter, const std::string& targetStat, int intensity, int duration);
-    Buff(Enemy* targetEnemy, const std::string& targetStat, int intensity, int duration);
+    Buff(Enemy* targetEnemy, const std::string& targetStat, int intensity);
 
     void affectCharacterStat();
     void affectEnemyStat();
