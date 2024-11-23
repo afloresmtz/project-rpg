@@ -2,14 +2,17 @@
 #define ENEMY_H
 
 class Enemy {
-private:
+protected:
+    std::string name;
     int health;
     int maxHealth;
     int strength;
     int magicRes;
     int meleeRes;
 public:
-    Enemy(int health, int strength, int magicRes, int meleeRes);
+    Enemy(const std::string& name, int health, int strength, int magicRes, int meleeRes);
+
+    const std::string getName();
 
     int getHealth();
     void setHealth(int amount);
@@ -25,9 +28,9 @@ public:
     int getMeleeRes();
     void setMeleeRes(int amount);
 
-    void attack(Character target);
-    void applyBuff(Buff current_buff);
-    void applyDebuff(Buff current_debuff);
+    void attack(Character* target);
+    void applyBuff(Buff* current_buff);
+    void applyDebuff(Buff* current_debuff);
 };
 
 #endif
