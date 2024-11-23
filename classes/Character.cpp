@@ -7,7 +7,7 @@
 #include "Enemy.h"
 #include "Buff.h"
 
-Character::Character(string name, int health, int defense, int damage, Weapon current_weapon) {
+Character::Character(const std::string& name, int health, int defense, int damage, Weapon current_weapon) {
     this->name = name;
     this->health = health;
     maxHealth = health;
@@ -22,7 +22,7 @@ Character::Character(string name, int health, int defense, int damage, Weapon cu
     critDmg = 50;
 }
 
-string Character::getName() {
+const std::string Character::getName() {
     return name;
 }
 
@@ -82,23 +82,27 @@ void Character::setCritDmg(int amount) {
 }
 
 Weapon getWeapon() {
-    return current_weapon;
+    return *current_weapon;
 }
-void equipWeapon(Weapon new_weapon) {
+void equipWeapon(Weapon* new_weapon) {
     current_weapon = new_weapon;
 }
 
-void Character::attackMelee(Enemy target) {
+void Character::attackMelee(Enemy* target) {
     int dmg_recieved = (meleeDmg + current_weapon.getDamage()) * (2 - (0.02 * target.getMeleeRes()));
-    if random_roll < critChance {
+    srand(time(nullptr));
+    int random_roll = rand() % (101);
+    if(random_roll < critChance){
             dmg_recieved = dmg_recieved * ((100 + critDmg) / 100);
     }
     target.setHealth(target.getHealth() - dmg_recieved);
 }
-void Character::attackMagic(Enemy target, int mana_amount) {
+void Character::attackMagic(Enemy* target, int mana_amount) {
     if(mana - mana_amount >= 0){
         int dmg_recieved = (magicDmg + current_weapon.getDamage()) * (2 - (0.02 * target.getMagicRes()));
-        if random_roll < critChance {
+        srand(time(nullptr));
+        int random_roll = rand() % (101);
+        if(random_roll < critChance){
             dmg_recieved = dmg_recieved * ((100 + critDmg) / 100);
         }
         target.setHealth(target.getHealth() - dmg_recieved);
@@ -109,7 +113,7 @@ void Character::attackMagic(Enemy target, int mana_amount) {
     }
 }
 
-void Character::applyDebuff(Buff current_debuff, int mana_amount) {
+void Character::applyDebuff(Buff* current_debuff, int mana_amount) {
     if(mana - mana_amount > 0){
         current_debuff.affectEnemyStat();
         mana = mana - mana_amount;
@@ -118,7 +122,7 @@ void Character::applyDebuff(Buff current_debuff, int mana_amount) {
     // will do in next delivery when main.cpp is created and functional
     
 }
-void Character::applyBuff(Buff current_buff, int mana_amount) {
+void Character::applyBuff(Buff* current_buff, int mana_amount) {
     if(mana - mana_amount > 0){
         current_debuff.affectCharacterStat();
         mana = mana - mana_amount;
@@ -127,8 +131,8 @@ void Character::applyBuff(Buff current_buff, int mana_amount) {
     // will do in next delivery when main.cpp is created and functional
 }
 
-void guard() {
-    defense = defense * 2;
+void Character::guard() {
+    defense = defense + 20;
     
     // remove effect when it's the character's turn again
     // original_value = defense;
