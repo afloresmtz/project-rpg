@@ -5,8 +5,9 @@
 #include <bits/stdc++.h>
 #include "Weapon.h"
 #include "Enemy.h"
+#include "BlessedWeapon.h"
 
-Character::Character(const std::string& name, int health, int defense, int damage, Weapon current_weapon) {
+Character::Character(const std::string& name, int health, int defense, int damage, BlessedWeapon* current_weapon) {
     this->name = name;
     this->health = health;
     maxHealth = health;
@@ -80,10 +81,10 @@ void Character::setCritDmg(int amount) {
     critDmg = amount;
 }
 
-Weapon getWeapon() {
+BlessedWeapon Character::getWeapon() {
     return *current_weapon;
 }
-void equipWeapon(Weapon* new_weapon) {
+void Character::equipWeapon(BlessedWeapon* new_weapon) {
     current_weapon = new_weapon;
 }
 
@@ -93,6 +94,7 @@ void Character::attackMelee(Enemy* target) {
     int random_roll = rand() % (101);
     if(random_roll < critChance){
             dmg_recieved = dmg_recieved * ((100 + critDmg) / 100);
+            cout << "Critical hit!\n" << endl;
     }
     target.setHealth(target.getHealth() - dmg_recieved);
 }
@@ -103,6 +105,7 @@ void Character::attackMagic(Enemy* target, int mana_amount) {
         int random_roll = rand() % (101);
         if(random_roll < critChance){
             dmg_recieved = dmg_recieved * ((100 + critDmg) / 100);
+            cout << "Critical hit!\n" << endl;
         }
         target.setHealth(target.getHealth() - dmg_recieved);
         mana = mana - mana_amount;
