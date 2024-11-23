@@ -57,9 +57,3 @@ void Enemy::attack(Character* target) {
         }
     }
 }
-void Enemy::applyBuff(Buff current_buff) {
-    current_buff.affectEnemyStat();
-}
-void Enemy::applyDebuff(Buff current_debuff) {
-    current_debuff.affectCharacterStat();
-}
