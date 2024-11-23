@@ -1,11 +1,11 @@
 #include "BlessedWeapon.h"
 #include <iostream>
 
-// Constructor
+// constructor (borrows from Weapon constructor)
 BlessedWeapon::BlessedWeapon(std::string name, int damage, bool type, std::string blessing, int intensity)
     : Weapon(name, damage, type), blessing(blessing), intensity(intensity) {}
 
-// Method to apply the blessing effect
+// getters for subclass attributes
 std::string BlessedWeapon::getBlessing() {
     return blessing;
 }
