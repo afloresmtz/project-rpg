@@ -5,13 +5,13 @@
 
 class Weapon {
 private:
-    string name;
+    std::string name;
     int damage;
     bool type;
 public:
-    Weapon(string name, int damage, bool type);
+    Weapon(std::string name, int damage, bool type);
 
-    string getName();
+    std::string getName();
     int getDamage();
     bool getType();
 };
