@@ -4,6 +4,7 @@
 #include <string>
 class Weapon;
 #include "Enemy.h"
+#include "BlessedWeapon.h"
 
 class Character {
 private:
@@ -18,10 +19,10 @@ private:
     int maxMana;
     int critChance;
     int critDmg;
-    Weapon* current_weapon;
+    BlessedWeapon* current_weapon;
 
 public:
-    Character(const std::string name, int health, int defense, int damage, Weapon* current_weapon);
+    Character(const std::string name, int health, int defense, int damage, BlessedWeapon* current_weapon);
 
     const std::string getName();
 
@@ -52,8 +53,8 @@ public:
     int getCritDmg();
     void setCritDmg(int amount);
 
-    Weapon getWeapon();
-    void equipWeapon(Weapon* new_weapon);
+    BlessedWeapon getWeapon();
+    void equipWeapon(BlessedWeapon* new_weapon);
 
     void attackMelee(Enemy* target);
     void attackMagic(Enemy* target, int mana_amount);
