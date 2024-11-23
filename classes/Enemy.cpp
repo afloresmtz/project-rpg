@@ -5,6 +5,8 @@
 #include "Buff.h"
 #include "Weapon.h"
 
+using namespace std;
+
 // constructor
 Enemy::Enemy(const std::string& name, int health, int strength, int magicRes, int meleeRes, Weapon* equipped_weapon) {
     this->name = name;
