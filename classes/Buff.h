@@ -2,22 +2,23 @@
 #define BUFF_H
 
 #include <string>
+class Character;
+class Enemy;
 
 class Buff {
 private:
     int intensity;
-    Character targetCharacter;
-    Enemy targetEnemy;
-    Slime targetEnemySlime;
-    Skeleton targetEnemySkeleton;
-    string targetStat;
     int duration;
+
+    std:.string targetStat;
+
+    Character* targetCharacter;
+    Enemy* targetEnemy;
+    
 public:
-    Buff(Character targetCharacter, string targetStat, int intensity);
-    Buff(Character targetCharacter, string targetStat, int intensity, int duration);
-    Buff(Enemy targetEnemy, string targetStat, int intensity, int duration);
-    Buff(Slime targetEnemySlime, string targetStat, int intensity, int duration);
-    Buff(Skeleton targetEnemySkeleton, string targetStat, int intensity, int duration);
+    Buff(Character* targetCharacter, const std::string& targetStat, int intensity);
+    Buff(Character* targetCharacter, const std::string& targetStat, int intensity, int duration);
+    Buff(Enemy* targetEnemy, const std::string& targetStat, int intensity, int duration);
 
     void affectCharacterStat();
     void affectEnemyStat();
