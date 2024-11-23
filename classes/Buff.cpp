@@ -3,11 +3,8 @@
 Buff::Buff(Character* targetCharacter, const std::string& targetStat, int intensity)
     : targetCharacter(targetCharacter), targetEnemy(nullptr), targetStat(targetStat), intensity(intensity) {}
 
-Buff::Buff(Character* targetCharacter, const std::string& targetStat, int intensity, int duration)
-    : targetCharacter(targetCharacter), targetEnemy(nullptr), targetStat(targetStat), intensity(intensity), duration(duration) {}
-
 Buff::Buff(Enemy* targetEnemy, const std::string& targetStat, int intensity, int duration)
-    : targetCharacter(nullptr), targetEnemy(targetEnemy), targetStat(targetStat), intensity(intensity), duration(duration) {}
+    : targetCharacter(nullptr), targetEnemy(targetEnemy), targetStat(targetStat), intensity(intensity) {}
 
 
 void Buff::affectCharacterStat() {
@@ -53,6 +50,8 @@ void Buff::affectEnemyStat() {
     if (targetStat == "health") {
         if (targetEnemy.getHealth() + intensity <= targetEnemy.getMaxHealth()) {
             targetEnemy.setHealth(targetEnemy.getHealth() + intensity);
+        } else {
+            targetEnemy->setHealth(targetEnemy->getMaxHealth());
         }
     } 
     else if (targetStat == "strength") {
