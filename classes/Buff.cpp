@@ -1,26 +1,27 @@
 #include "Buff.h"
 
+// constructors
 Buff::Buff(Character* targetCharacter, const std::string& targetStat, int intensity)
     : targetCharacter(targetCharacter), targetEnemy(nullptr), targetStat(targetStat), intensity(intensity) {}
 
 Buff::Buff(Enemy* targetEnemy, const std::string& targetStat, int intensity)
     : targetCharacter(nullptr), targetEnemy(targetEnemy), targetStat(targetStat), intensity(intensity) {}
 
-
+// methods
 void Buff::affectCharacterStat() {
     if (!targetCharacter) return;
     if (targetStat == "health") {
-        if (targetCharacter->getHealth() + intensity <= targetCharacter->getMaxHealth()) {
+        if (targetCharacter->getHealth() + intensity <= targetCharacter->getMaxHealth()) { // if health doesn't overflow
             targetCharacter->setHealth(targetCharacter->getHealth() + intensity);
         } else {
-            targetCharacter->setHealth(targetCharacter->getMaxHealth());
+            targetCharacter->setHealth(targetCharacter->getMaxHealth()); // set health to max health if it does
         }
     }
     else if (targetStat == "mana") {
-        if (targetCharacter->getMana() + intensity <= targetCharacter->getMaxMana()) {
+        if (targetCharacter->getMana() + intensity <= targetCharacter->getMaxMana()) { // if mana doesn't overflow
             targetCharacter->setMana(targetCharacter->getMana() + intensity);
         } else {
-            targetCharacter->setMana(targetCharacter->getMaxMana());
+            targetCharacter->setMana(targetCharacter->getMaxMana()); // set mana to max health if it does
         }
     }
     else if (targetStat == "maxHealth") {
